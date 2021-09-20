@@ -10,6 +10,12 @@ router.get("/products/:id", productsController.productDetail);
 
 router.post("/login", authMiddleware.isNotAuthenticated, authController.login);
 
+router.post(
+  "/review",
+  authMiddleware.isAuthenticated,
+  productsController.review
+);
+
 router.get(
   "/users/me",
   authMiddleware.isAuthenticated,
